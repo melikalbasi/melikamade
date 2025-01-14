@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'DM Mono';
+  src: url('/fonts/DMMono-Regular.woff') format('woff'),
+    url('/fonts/DMMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/fonts/DMSerifDisplay-Regular.woff') format('woff'),
+    url('/fonts/DMSerifDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/fonts/DMSerifDisplay-Italic.woff') format('woff'),
+    url('/fonts/DMSerifDisplay-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Grand Slang';
+  src: url('/fonts/GrandSlang-Roman.woff') format('woff'),
+    url('/fonts/GrandSlang-Roman.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Grand Slang Italic';
+  src: url('/fonts/GrandSlang-Italic.woff') format('woff'),
+    url('/fonts/GrandSlang-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -9,7 +49,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0815c9;
     --foreground: #ededed;
   }
 }
@@ -17,5 +57,127 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  cursor: none; /* Hides the default cursor */
+}
+
+body::before {
+  content: ''; /* Empty content for the pseudo-element */
+  position: absolute;
+  top: 15px; /* 15px margin from the top */
+  left: 15px; /* 15px margin from the left */
+  right: 15px; /* 15px margin from the right */
+  bottom: 15px; /* 15px margin from the bottom */
+  border: 1px solid white; /* White border */
+  border-radius: 10px;
+  pointer-events: none; /* Allow clicks to pass through the border */
+  z-index: 9999; /* Ensure the border is above everything */
+}
+
+a {
+  cursor: none !important;
+  display: inline-block;
+  min-width: 500px; /* Adjust based on the actual width needed */
+  transition: font-style 0.3s ease;
+}
+
+h1 {
+  font-family: 'DM Mono', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.3rem;
+}
+
+h2 {
+  font-family: 'DM Mono', sans-serif;
+  font-size: 24px;
+}
+
+h3 {
+  font-family: 'DM Serif Display', sans-serif;
+  font-size: 24px;
+}
+
+.about-card {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Stick to the bottom */
+  padding: 120px; /* Add some spacing */
+  font-size: 14px; /* Adjust font size */
+  line-height: 1.6;
+  min-width: 500px;
+}
+
+.about-card p {
+  margin: 0; /* Remove default margins */
+}
+
+.about-card a {
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent */
+  font-weight: bold; /* Match the bold style for links */
+}
+
+/* Main layout container */
+.combined-layout {
+  display: flex;
+  justify-content: space-between; /* Spread the two components to opposite sides */
+  align-items: stretch; /* Ensure full height alignment */
+  height: 100vh; /* Full height layout */
+}
+
+/* Right-side navigation styling */
+.right-side-navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: flex-end; /* Align links to the right */
+  padding-right: 140px; /* Space from the right edge */
+}
+
+.main-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between links */
+}
+
+.main-links a {
+  font-family: 'Grand Slang', sans-serif;
+  display: inline-block; /* Ensures transform applies properly */
+  z-index: 100;
+  color: var(--charcoal);
+  text-align: left;
+  text-transform: uppercase;
+  border: 0 solid #000;
+  font-size: 8vw;
+  font-weight: 300;
+  line-height: 0.95em;
+  text-decoration: none;
+  transition: font-family 0.3s ease-in-out, transform 0.3s ease-in-out,
+    color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+  position: relative;
+}
+
+.main-links a:hover {
+  font-family: 'Grand Slang Italic', sans-serif;
+  color: var(--foreground);
+  transition: color 0.3s ease-in-out;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-links a {
+    font-size: 32px; /* Adjust font size for smaller screens */
+  }
+  .right-side-navigation {
+    padding-right: 20px; /* Adjust spacing */
+  }
 }
