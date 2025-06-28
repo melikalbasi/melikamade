@@ -49,9 +49,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0815c9;
+    --background: #9b815d;
     --foreground: #ededed;
   }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -79,7 +85,7 @@ body::before {
 a {
   cursor: none !important;
   display: inline-block;
-  min-width: 500px; /* Adjust based on the actual width needed */
+  /* min-width: 500px; */
   transition: font-style 0.3s ease;
 }
 
@@ -99,30 +105,23 @@ h3 {
   font-size: 24px;
 }
 
-.about-card {
-  text-align: left;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
 .about-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Stick to the bottom */
-  padding: 120px; /* Add some spacing */
-  font-size: 14px; /* Adjust font size */
+  justify-content: center;
+  padding: 100px;
   line-height: 1.6;
-  min-width: 500px;
+  /* min-width: 500px; */
+  /* background-color: red; */
 }
 
-.about-card p {
-  margin: 0; /* Remove default margins */
-}
-
-.about-card a {
-  text-decoration: none;
-  color: inherit; /* Inherit color from parent */
-  font-weight: bold; /* Match the bold style for links */
+.about-card {
+  /* background-color: pink; */
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* Main layout container */
@@ -139,7 +138,7 @@ h3 {
   flex-direction: column;
   justify-content: center; /* Center vertically */
   align-items: flex-end; /* Align links to the right */
-  padding-right: 140px; /* Space from the right edge */
+  padding: 140px; /* Space from the right edge */
 }
 
 .main-links {
@@ -149,6 +148,8 @@ h3 {
 }
 
 .main-links a {
+  font-size: clamp(2rem, 6vw, 5rem);
+  min-width: 60vw;
   font-family: 'Grand Slang', sans-serif;
   display: inline-block; /* Ensures transform applies properly */
   z-index: 100;
@@ -156,28 +157,24 @@ h3 {
   text-align: left;
   text-transform: uppercase;
   border: 0 solid #000;
-  font-size: 8vw;
   font-weight: 300;
   line-height: 0.95em;
   text-decoration: none;
-  transition: font-family 0.3s ease-in-out, transform 0.3s ease-in-out,
-    color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+  transition: font-family 0.2s ease-in-out, transform 0.2s ease-in-out,
+    color 0.2s ease-in-out, font-size 0.2s ease-in-out;
   position: relative;
 }
 
 .main-links a:hover {
   font-family: 'Grand Slang Italic', sans-serif;
   color: var(--foreground);
-  transition: color 0.3s ease-in-out;
+  transition: color 0.2s ease-in-out;
   font-style: italic;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .main-links a {
-    font-size: 32px; /* Adjust font size for smaller screens */
-  }
+@media (min-width: 768px) {
   .right-side-navigation {
-    padding-right: 20px; /* Adjust spacing */
+    padding-right: 20px;
   }
 }

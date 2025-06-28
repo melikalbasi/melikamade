@@ -21,10 +21,10 @@ const CustomCursor = () => {
     <div
       style={{
         position: 'fixed',
-        left: `${position.x - 25}px`,
-        top: `${position.y - 25}px`,
-        width: '50px',
-        height: '50px',
+        left: `${position.x - 50}px`,
+        top: `${position.y - 50}px`,
+        width: '100px',
+        height: '100px',
         backgroundColor: 'white',
         borderRadius: '50%',
         pointerEvents: 'none',

@@ -7,7 +7,7 @@ const LargeNav: React.FC = () => {
         <a href="/engineering">ENGINEERING</a>
         <a href="/embroidery">EMBROIDERY</a>
         <a href="/explore">EXPLORATIONS</a>
-        <a href="/engage">ENGAGE</a>
+        {/* <a href="/engage">ENGAGE</a> */}
       </nav>
     </div>
   );
