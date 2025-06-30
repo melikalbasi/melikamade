@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import localFont from 'next/font/local';
+import CustomCursor from '@/components/CustomCursor';
+import BorderFrame from '@/components/BorderFrame';
+import SiteTitle from '@/components/SiteTitle/SiteTitle';
 
 const grandSlang = localFont({
   src: [
@@ -43,7 +46,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased ${grandSlang.className}  `}
       >
-        {children}
+        <header className="fixed top-0 right-0 p-4 bg-transparent z-50">
+          <SiteTitle />
+        </header>
+        <CustomCursor />
+        <BorderFrame>{children}</BorderFrame>
       </body>
     </html>
   );

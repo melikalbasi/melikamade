@@ -4,9 +4,13 @@ import React, { useEffect, useState } from 'react';
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const updatePosition = (e: { clientX: any; clientY: any }) => {
+    setMounted(true);
+
+    const updatePosition = (e: MouseEvent) => {
+      console.log('Mouse move:', e.clientX, e.clientY); // confirm it's firing
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -17,14 +21,16 @@ const CustomCursor = () => {
     };
   }, []);
 
+  if (!mounted) return null;
+
   return (
     <div
       style={{
         position: 'fixed',
-        left: `${position.x - 50}px`,
-        top: `${position.y - 50}px`,
-        width: '100px',
-        height: '100px',
+        left: position.x - 50,
+        top: position.y - 50,
+        width: 100,
+        height: 100,
         backgroundColor: 'white',
         borderRadius: '50%',
         pointerEvents: 'none',
