@@ -1,6 +1,3 @@
-import BorderFrame from '@/components/BorderFrame';
-import CustomCursor from '@/components/CustomCursor';
-
 export default function EngineeringPage() {
   return (
     <div className="flex flex-col items-start justify-center h-screen px-10 lg:px-20">

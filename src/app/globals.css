@@ -65,8 +65,14 @@ body {
   background: var(--background);
   margin: 0;
   padding: 0;
-  height: 100%;
   cursor: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 a {
@@ -75,88 +81,68 @@ a {
   transition: font-style 0.3s ease;
 }
 
-h1 {
-  font-family: 'DM Mono', sans-serif;
-  font-size: 24px;
-  letter-spacing: 0.3rem;
-}
-
+h1,
 h2 {
   font-family: 'DM Mono', sans-serif;
-  font-size: 24px;
 }
-
-h3 {
-  font-family: 'DM Serif Display', sans-serif;
-  font-size: 24px;
-}
-
-.about-container {
+.large-nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 100px;
-  line-height: 1.6;
+  align-items: center; /* Center the nav container horizontally */
+  padding: 0 1rem; /* Padding so links don't touch edges */
+  height: 100%;
+  max-width: 100vw; /* Prevent overflow */
+  box-sizing: border-box;
 }
 
-.about-card {
-  text-align: left;
-  font-size: 12px;
-  line-height: 1.6;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* Main layout container */
-.combined-layout {
-  display: flex;
-  justify-content: space-between; /* Spread the two components to opposite sides */
-  align-items: stretch; /* Ensure full height alignment */
-  height: 100vh; /* Full height layout */
-}
-
-/* Right-side navigation styling */
-.right-side-navigation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: flex-end; /* Align links to the right */
-}
-
-.main-links {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between links */
-}
-
-.main-links a {
-  font-size: clamp(2rem, 6vw, 5rem);
-  min-width: 60vw;
+.large-nav__link {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
   font-family: 'Grand Slang', sans-serif;
-  display: inline-block; /* Ensures transform applies properly */
-  z-index: 100;
-  color: var(--charcoal);
-  text-align: left;
-  text-transform: uppercase;
-  border: 0 solid #000;
   font-weight: 300;
-  line-height: 0.95em;
+  font-size: clamp(3rem, 8vw, 11vw); /* Responsive font size */
+  text-transform: uppercase;
   text-decoration: none;
-  transition: font-family 0.2s ease-in-out, transform 0.2s ease-in-out,
-    color 0.2s ease-in-out, font-size 0.2s ease-in-out;
-  position: relative;
+  color: var(--charcoal);
+  text-align: center; /* Center text inside link */
+  display: inline-block;
+  transition: color 0.2s ease-in-out, transform 0.3s ease-in-out,
+    font-family 0.2s ease-in-out;
+  white-space: nowrap;
+
+  min-width: 14ch;
+  margin-bottom: 0.2em; /* Smaller spacing between links */
 }
 
-.main-links a:hover {
-  font-family: 'Grand Slang Italic', sans-serif;
-  color: var(--foreground);
-  transition: color 0.2s ease-in-out;
-  font-style: italic;
+.large-nav__link:last-child {
+  margin-bottom: 0; /* Remove margin on last link */
 }
 
-/* Responsive Design */
+.large-nav__link:hover {
+  transform: translateX(1rem) skew(-12deg) rotate(-2deg);
+}
+/* On larger screens, left-align links */
 @media (min-width: 768px) {
-  .right-side-navigation {
+  .large-nav {
+    align-items: flex-start;
     padding-right: 20px;
+  }
+
+  .large-nav__link {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: clamp(4rem, 6vw, 11vw);
+  }
+
+  .large-nav__link.left-link:hover {
+    color: var(--foreground);
+    transform: translateX(1rem) skew(-12deg) rotate(-2deg);
+  }
+
+  .large-nav__link.right-link:hover {
+    color: var(--foreground);
+    transform: translateX(1rem) skew(-12deg) rotate(-2deg);
   }
 }

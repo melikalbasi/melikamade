@@ -2,14 +2,36 @@ import React from 'react';
 
 const LargeNav: React.FC = () => {
   return (
-    <div className="right-side-navigation">
-      <nav className="main-links">
-        <a href="/engineering">ENGINEERING</a>
-        <a href="/embroidery">EMBROIDERY</a>
-        <a href="/explore">EXPLORATIONS</a>
-        {/* <a href="/engage">ENGAGE</a> */}
-      </nav>
-    </div>
+    <nav className="large-nav">
+      <a
+        href="/engage"
+        data-text="ENGAGE"
+        className="large-nav__link left-link"
+      >
+        ABOUT
+      </a>
+      <a
+        href="/engineering"
+        data-text="ENGINEERING"
+        className="large-nav__link right-link"
+      >
+        WORK
+      </a>
+      <a
+        href="/embroidery"
+        data-text="EMBROIDERY"
+        className="large-nav__link left-link"
+      >
+        ART
+      </a>
+      <a
+        href="/explore"
+        data-text="EXPLORATIONS"
+        className="large-nav__link right-link"
+      >
+        CONTACT
+      </a>
+    </nav>
   );
 };
 
