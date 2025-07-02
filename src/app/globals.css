@@ -73,6 +73,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  font-family: var(--font-montserrat);
 }
 
 a {
@@ -81,9 +82,8 @@ a {
   transition: font-style 0.3s ease;
 }
 
-h1,
-h2 {
-  font-family: 'DM Mono', sans-serif;
+.about-card {
+  font-family: var(--font-montserrat);
 }
 .large-nav {
   display: flex;
@@ -111,7 +111,6 @@ h2 {
   transition: color 0.2s ease-in-out, transform 0.3s ease-in-out,
     font-family 0.2s ease-in-out;
   white-space: nowrap;
-
   min-width: 14ch;
   margin-bottom: 0.2em; /* Smaller spacing between links */
 }

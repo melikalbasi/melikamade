@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Montserrat } from 'next/font/google';
 import './globals.css';
 import localFont from 'next/font/local';
 import CustomCursor from '@/components/CustomCursor';
@@ -19,6 +19,11 @@ const grandSlang = localFont({
       style: 'italic',
     },
   ],
+});
+
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  subsets: ['latin'],
 });
 
 const geistSans = Geist({
@@ -44,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${grandSlang.className}  `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased ${montserrat.variable}`}
       >
         <header className="fixed top-0 right-0 p-4 bg-transparent z-50">
           <SiteTitle />
