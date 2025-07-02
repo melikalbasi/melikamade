@@ -10,7 +10,6 @@ const CustomCursor = () => {
     setMounted(true);
 
     const updatePosition = (e: MouseEvent) => {
-      console.log('Mouse move:', e.clientX, e.clientY); // confirm it's firing
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -31,7 +30,7 @@ const CustomCursor = () => {
         top: position.y - 50,
         width: 100,
         height: 100,
-        backgroundColor: 'white',
+        backgroundColor: 'pink',
         borderRadius: '50%',
         pointerEvents: 'none',
         mixBlendMode: 'difference',

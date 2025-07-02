@@ -43,13 +43,13 @@
 }
 
 :root {
-  --background: #ffffff;
+  --background: #a47864;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #9b815d;
+    --background: #a47864;
     --foreground: #ededed;
   }
 }
@@ -66,13 +66,12 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  cursor: none; /* Hides the default cursor */
+  cursor: none;
 }
 
 a {
   cursor: none !important;
   display: inline-block;
-  /* min-width: 500px; */
   transition: font-style 0.3s ease;
 }
 
